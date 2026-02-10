@@ -3,6 +3,14 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.layouts.app');
 });
+
+
+Route::get('/guest', function () {
+    return view('guest.layouts.app');
+});
+
+
+
 ?>
