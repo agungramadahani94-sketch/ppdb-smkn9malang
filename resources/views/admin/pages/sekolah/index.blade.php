@@ -4,7 +4,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Halaman Jurusan</h1>
+                <h1>Halaman Sekolah</h1>
             </div>
 
             <div class="section-body">
@@ -12,11 +12,12 @@
                     <div class="col-12 col-md-12 col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Table Jurusan</h4>
+                                <h4>List Sekolah</h4>
+                                <a href="{{ route('sekolah.create') }}" class="btn btn-primary">Tambah Sekolah</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-md">
+                                    <table class="table table-bordered table-md ">
                                         <tr>
                                             <th>No</th>
                                             <th>Name</th>
@@ -84,6 +85,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
         </section>
     </div>
