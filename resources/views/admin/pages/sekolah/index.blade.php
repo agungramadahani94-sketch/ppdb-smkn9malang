@@ -13,54 +13,56 @@
                         <div class="card">
                             <div class="card-header">
                                 <h4>List Sekolah</h4>
-                                <a href="{{ route('sekolah.create') }}" class="btn btn-primary">Tambah Sekolah</a>
+                                <a href="{{ route('sekolah.create') }}" class="btn btn-primary">
+                                    <i class="fas fa-plus mr-2"></i>
+                                    Tambah Sekolah
+                                </a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-md ">
                                         <tr>
                                             <th>No</th>
-                                            <th>Name</th>
-                                            <th>Created At</th>
-                                            <th>Status</th>
+                                            <th>Nama Sekolah</th>
+                                            <th>Alamat Sekolah </th>
+                                            <th>Telpon</th>
+                                            <th>Email</th>
                                             <th>Action</th>
                                         </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Irwansyah Saputra</td>
-                                            <td>2017-01-09</td>
-                                            <td>
-                                                <div class="badge badge-success">Active</div>
-                                            </td>
-                                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Hasan Basri</td>
-                                            <td>2017-01-09</td>
-                                            <td>
-                                                <div class="badge badge-success">Active</div>
-                                            </td>
-                                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Kusnadi</td>
-                                            <td>2017-01-11</td>
-                                            <td>
-                                                <div class="badge badge-danger">Not Active</div>
-                                            </td>
-                                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Rizal Fakhri</td>
-                                            <td>2017-01-11</td>
-                                            <td>
-                                                <div class="badge badge-success">Active</div>
-                                            </td>
-                                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                                        </tr>
+                                        <tbody>
+                                            @php
+                                                $no = 1;
+                                            @endphp
+                                            @foreach ($sekolah as $item)
+                                                <tr>
+                                                    <td>{{ $no++ }}</td>
+                                                    <td>{{ $item->nama_sekolah }}</td>
+                                                    <td>{{ $item->alamat }}</td>
+                                                    <td>{{ $item->no_telp }}</td>
+                                                    <td>{{ $item->email }}</td>
+
+
+                                                    <td>
+                                                        <a href="{{ route('sekolah.edit', $item->id) }}"
+                                                            class="btn btn-primary btn-sm">
+                                                            <i class="fas fa-edit mr-2"></i>
+                                                            Edit
+                                                        </a>
+                                                        <a href="{{ route('sekolah.destroy', $item->id) }}"
+                                                            class="btn btn-danger btn-sm">
+                                                            <i class="fas fa-trash mr-2"></i>
+                                                            Hapus
+                                                        </a>
+
+
+                                                    </td>
+
+                                                </tr>
+                                            @endforeach
+
+                                        </tbody>
+
+
                                     </table>
                                 </div>
                             </div>

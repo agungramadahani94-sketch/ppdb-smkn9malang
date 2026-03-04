@@ -12,7 +12,8 @@ class SekolahController extends Controller
      */
     public function index()
     {
-         return view('admin.pages.sekolah.index');
+        $sekolah = Sekolah::all();
+        return view('admin.pages.sekolah.index')->with('sekolah', $sekolah);
     }
 
     /**
@@ -20,8 +21,7 @@ class SekolahController extends Controller
      */
     public function create()
     {
-         return view('admin.pages.sekolah.create');
-       
+        return view('admin.pages.sekolah.create');
     }
 
     /**
@@ -44,9 +44,10 @@ class SekolahController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $sekolah = Sekolah::findOrFail($id);
+        return view('admin.pages.sekolah.edit')->with('sekolah', $sekolah);
     }
 
     /**
@@ -54,7 +55,9 @@ class SekolahController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $sekolah = Sekolah::findOrFail($id);
+        $sekolah->update($request->all());
+        return to_route('sekolah.index');
     }
 
     /**
@@ -62,6 +65,7 @@ class SekolahController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Sekolah::destroy($id);
+        return to_route('sekolah.index');
     }
 }
