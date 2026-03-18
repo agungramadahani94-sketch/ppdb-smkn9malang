@@ -65,7 +65,9 @@ class SekolahController extends Controller
      */
     public function destroy(string $id)
     {
-        Sekolah::destroy($id);
+        $sekolah = Sekolah::findOrFail($id);
+        $sekolah->delete();
         return to_route('sekolah.index');
+        
     }
 }

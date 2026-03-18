@@ -48,11 +48,15 @@
                                                             <i class="fas fa-edit mr-2"></i>
                                                             Edit
                                                         </a>
-                                                        <a href="{{ route('sekolah.destroy', $item->id) }}"
-                                                            class="btn btn-danger btn-sm">
-                                                            <i class="fas fa-trash mr-2"></i>
-                                                            Hapus
-                                                        </a>
+                                                        <form action="{{ route('sekolah.destroy', $item->id) }}" method="POST"
+                                                            style="display:inline;">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                                <i class="fas fa-trash mr-2"></i>
+                                                                Hapus
+                                                            </button>
+                                                        </form>
 
 
                                                     </td>
